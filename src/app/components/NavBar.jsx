@@ -24,7 +24,7 @@ const NavBar = () => {
         <div className='bg-white/70 backdrop-blur-md sticky top-0 z-50'>
             <div className="navbar flex">
                 {/* Logo */}
-                <div className="navbar-start ml-10">
+                <div className="navbar-start md:ml-10">
                     <div className='h-0 w-40 flex items-center'>
                         <Link href="/">
                             <Image src={logo} alt="Logo" />
@@ -56,7 +56,7 @@ const NavBar = () => {
 
                     {/* Book Service Button (Desktop) */}
                     <Link
-                        className={`btn hidden text-[16px] lg:inline-flex mr-10 ${linkClass('/book-service')}`}
+                        className={`btn hidden text-[16px] lg:inline-flex md:mr-10 ${linkClass('/book-service')}`}
                         href="/book-service"
                     >
                         Book Service
@@ -74,7 +74,7 @@ const NavBar = () => {
                             ✕
                         </button>
                     </div>
-                    <ul className="menu gap-2 p-4 text-[16px]">
+                    <ul className="menu gap-1 p-4 md:text-[16px]">
                         <li><Link href="/" onClick={toggleSidebar} className={linkClass('/')}>Home</Link></li>
                         <li><Link href="/service" onClick={toggleSidebar} className={linkClass('/service')}>Service</Link></li>
                         <li><Link href="/blog" onClick={toggleSidebar} className={linkClass('/blog')}>Blog</Link></li>
@@ -91,7 +91,7 @@ const NavBar = () => {
             {isSidebarOpen && (
                 <div
                     onClick={toggleSidebar}
-                    className="fixed inset-0 bg-black bg-opacity-40 z-40"
+                    className="fixed inset-0 bg-opacity-40 z-40"
                 />
             )}
         </div>

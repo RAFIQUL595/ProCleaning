@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
+import BannerSection from "./components/banner/page";
 
 const HomePage = () => {
   return (
     <div>
-      <p>This is home page</p>
+      <BannerSection></BannerSection>
     </div>
   );
 };
