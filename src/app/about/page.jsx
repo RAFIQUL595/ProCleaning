@@ -1,5 +1,9 @@
 import React from 'react';
 
+export const metadata = {
+    title: "About Us | ProCleaning",
+};
+
 const AboutPage = () => {
     return (
         <div>

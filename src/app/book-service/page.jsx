@@ -1,5 +1,10 @@
 import React from 'react';
 
+export const metadata = {
+    title: "Book Service | ProCleaning",
+};
+
+
 const BookServicePage = () => {
     return (
         <div>
