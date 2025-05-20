@@ -5,6 +5,7 @@ import TeamSection from "./components/team/page";
 import AboutSection from "./components/aboutSection/page";
 import TestimonialsSection from "./components/testimonials/page";
 import BlogSection from "./components/blogSection/page";
+import ContactInfoSection from "./components/contactInfoSection/page";
 
 export const metadata = {
   title: "Home | ProCleaning",
@@ -18,6 +19,7 @@ const HomePage = () => {
       <AboutSection></AboutSection>
       <TestimonialsSection></TestimonialsSection>
       <BlogSection></BlogSection>
+      <ContactInfoSection></ContactInfoSection>
     </div>
   );
 };
