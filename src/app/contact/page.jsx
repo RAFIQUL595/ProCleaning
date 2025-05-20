@@ -1,4 +1,5 @@
 import React from 'react';
+import ContactInfoSection from '../components/contactInfoSection/page';
 
 export const metadata = {
     title: "Contact | ProCleaning",
@@ -7,7 +8,7 @@ export const metadata = {
 const ContactPage = () => {
     return (
         <div>
-            <p>This is Contact Page</p>
+            <ContactInfoSection></ContactInfoSection>
         </div>
     );
 };

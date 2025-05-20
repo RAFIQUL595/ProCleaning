@@ -1,10 +1,41 @@
 'use client';
-import React from 'react';
+import React, { useRef } from 'react';
 import { LuPhoneCall } from "react-icons/lu";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
+import Swal from 'sweetalert2';
+import emailjs from 'emailjs-com';
 
 const ContactInfoSection = () => {
+    const formRef = useRef();
+
+    // Function to handle form submission
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await emailjs.sendForm(
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+                formRef.current,
+                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+            );
+            Swal.fire({
+                title: "Good job!",
+                text: "Message sent successfully!",
+                icon: "success",
+            });
+
+            // Reset form inputs
+            formRef.current.reset();
+        } catch (error) {
+            Swal.fire({
+                title: "Oops!",
+                text: "Something went wrong. Please try again.",
+                icon: "error",
+            });
+        }
+    };
+
     return (
         <div className="max-w-7xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-12">
             {/* Left Side - Contact Info */}
@@ -23,7 +54,7 @@ const ContactInfoSection = () => {
 
                     <div className="flex items-center gap-4 bg-gray-100 p-4 rounded-md">
                         <div className="bg-green-500 text-white p-3 rounded-full">
-                         <MdOutlineMailOutline />
+                            <MdOutlineMailOutline />
                         </div>
                         <div>
                             <h4 className="font-semibold">Email Now</h4>
@@ -49,19 +80,25 @@ const ContactInfoSection = () => {
                 <p className="text-sm text-gray-600 mb-6">
                     We prioritize responding to your inquiries promptly to ensure you receive the assistance you need in a timely manner.
                 </p>
-                <form className="space-y-4">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
                     <input
                         type="text"
+                        name="name"
+                        required
                         placeholder="Name"
                         className="w-full border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
                     />
                     <input
                         type="email"
+                        required
+                        name="email"
                         placeholder="Email"
                         className="w-full border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
                     />
                     <textarea
                         rows="4"
+                        required
+                        name='messages'
                         placeholder="Message"
                         className="w-full border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
                     />

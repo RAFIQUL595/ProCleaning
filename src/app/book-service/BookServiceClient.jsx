@@ -7,21 +7,13 @@ import emailjs from 'emailjs-com';
 
 const BookServiceClient = () => {
     const [services, setServices] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
     const formRef = useRef();
 
     useEffect(() => {
         const fetchServices = async () => {
-            try {
-                const allServices = await getAllService();
-                const filtered = allServices.filter(service => service.title !== 'title');
-                setServices(filtered);
-            } catch (err) {
-                setError("Failed to load services");
-            } finally {
-                setLoading(false);
-            }
+            const allServices = await getAllService();
+            const filtered = allServices.filter(service => service.title !== 'title');
+            setServices(filtered);
         };
 
         fetchServices();
@@ -31,10 +23,10 @@ const BookServiceClient = () => {
         e.preventDefault();
         try {
             await emailjs.sendForm(
-                'service_mjrr634',
-                'template_o3wwh1r',
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID_API,
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
                 formRef.current,
-                'VMB4NMnkBMltTTbjX'
+                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
             );
             Swal.fire({
                 title: "Good job!",

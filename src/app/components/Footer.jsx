@@ -1,9 +1,40 @@
+'use client';
 import Image from 'next/image';
-import React from 'react';
+import React, { useRef } from 'react';
 import footer from '../../../public/logo/footer.png';
 import Link from 'next/link';
+import Swal from 'sweetalert2';
+import emailjs from 'emailjs-com';
 
 const Footer = () => {
+    const formRef = useRef();
+    // Function to handle form submission
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await emailjs.sendForm(
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID_KEY,
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+                formRef.current,
+                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+            );
+            Swal.fire({
+                title: "Good job!",
+                text: "Message sent successfully!",
+                icon: "success",
+            });
+
+            // Reset form inputs
+            formRef.current.reset();
+        } catch (error) {
+            Swal.fire({
+                title: "Oops!",
+                text: "Something went wrong. Please try again.",
+                icon: "error",
+            });
+        }
+    };
+
     return (
         <footer className="bg-black text-white px-6 py-10">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -39,17 +70,19 @@ const Footer = () => {
                 <div>
                     <h6 className="text-lg font-semibold mb-3">Newsletter</h6>
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
-                        <input
-                            type="email"
-                            placeholder="Write your email"
-                            required
-                            className="w-full px-4 py-2 rounded-md text-[#eeeeee] border border-[#808080]"
-                        />
-
+                        <form ref={formRef} onSubmit={handleSubmit}>
+                            <input
+                                type="email"
+                                name='email'
+                                placeholder="Write your email"
+                                required
+                                className="w-full px-4 py-2 rounded-md text-[#eeeeee] border border-[#808080]"
+                            />
+                            <button type='submit' className="bg-green-500 cursor-pointer mt-3 text-white w-full md:w-20 md:px-4 py-2 rounded-md hover:bg-green-600">
+                                Send
+                            </button>
+                        </form>
                     </div>
-                    <button className="bg-green-500 cursor-pointer mt-3 text-white w-full md:w-20 md:px-4 py-2 rounded-md hover:bg-green-600">
-                        Send
-                    </button>
                 </div>
             </div>
 
