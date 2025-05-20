@@ -33,7 +33,7 @@ const ServiceSection = async () => {
                         <div className="p-5">
                             <div className="flex justify-between items-center">
                                 <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                                <h4>{service.price}</h4>
+                                <h4>৳{service.price}</h4>
                             </div>
                             <p className="text-sm text-gray-500 mb-4">{service.description}</p>
                             <Link href="/book-service"><button

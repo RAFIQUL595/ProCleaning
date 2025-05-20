@@ -1,4 +1,5 @@
 import React from 'react';
+import BookServiceClient from './BookServiceClient';
 
 export const metadata = {
     title: "Book Service | ProCleaning",
@@ -6,11 +7,7 @@ export const metadata = {
 
 
 const BookServicePage = () => {
-    return (
-        <div>
-            <p>This is Book Service Page</p>
-        </div>
-    );
+    return <BookServiceClient></BookServiceClient>
 };
 
 export default BookServicePage;

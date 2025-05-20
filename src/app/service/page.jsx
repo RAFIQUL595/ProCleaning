@@ -1,15 +1,14 @@
-import React from 'react';
+import ServicePage from "./ServiceClient";
+
 
 export const metadata = {
     title: "Service | ProCleaning",
 };
 
-const ServicePage = () => {
-    return (
-        <div>
-            <p>This is Service Page</p>
-        </div>
-    );
+const Page = () => {
+
+
+    return <ServicePage />;
 };
 
-export default ServicePage;
+export default Page;
