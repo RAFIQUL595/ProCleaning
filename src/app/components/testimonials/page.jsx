@@ -43,7 +43,7 @@ const TestimonialsSection = () => {
     const { name, title, image, rating, feedback } = testimonials[currentIndex];
 
     return (
-        <div className="bg-white flex flex-col md:gap-10 md:flex-row py-20 px-4 md:px-12">
+        <div className="bg-white flex flex-col md:gap-10 md:flex-row py-10 lg:py-15 px-4 md:px-12">
             {/* Heading & Arrows */}
             <div className="text-center md:text-left mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

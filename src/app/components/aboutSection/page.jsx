@@ -3,7 +3,7 @@ import React from 'react';
 
 const AboutSection = () => {
   return (
-    <div className="flex flex-col lg:flex-row items-center md:justify-between gap-10 p-8 bg-white">
+    <div className="flex py-10 flex-col lg:flex-row items-center md:justify-between gap-10 p-8 bg-white">
       {/* Left side: Images */}
       <div className="flex flex-col items-center gap-4">
         <img

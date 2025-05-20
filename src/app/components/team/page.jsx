@@ -21,7 +21,7 @@ const teamMembers = [
 
 const TeamSection = () => {
   return (
-    <section className="max-w-7xl mx-auto px-4 py-16">
+    <section className="max-w-7xl mx-auto px-4 lg:py-16">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-gray-900">
           Effective Cleaning Requires <br /> an Expert Cleaning Team
