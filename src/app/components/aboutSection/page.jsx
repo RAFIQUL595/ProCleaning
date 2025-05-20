@@ -9,12 +9,12 @@ const AboutSection = () => {
         <img
           src="https://i.ibb.co/39QT59fq/team-young-janitors-cleaning-supplies-600nw-2506533269.jpg"
           alt="Cleaning Team"
-          className="w-72 h-auto rounded-lg border-t-5 border-l-5 border-green-500 "
+          className="md:w-96 w-72 h-auto rounded-lg border-t-5 border-l-5 border-green-500 "
         />
         <img
           src="https://i.ibb.co/F426cqSC/types-of-house-cleaning-services-to-offer.jpg"
           alt="Gloved Hand Cleaning"
-          className="w-72 h-auto rounded-lg border-t-5 border-l-5 border-white -mt-25 ml-30"
+          className="md:w-96 w-72 h-auto rounded-lg border-t-5 border-l-5 border-white -mt-25 ml-30"
         />
       </div>
 
