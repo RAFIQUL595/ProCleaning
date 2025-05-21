@@ -51,7 +51,7 @@ const Footer = () => {
                     <h6 className="text-lg font-semibold mb-3">Company</h6>
                     <ul className="space-y-2 text-sm text-white">
                         <li><Link href="/about">About Us</Link></li>
-                        <li><Link href="/services">Services</Link></li>
+                        <li><Link href="/service">Services</Link></li>
                         <li><Link href="#">Our Team</Link></li>
                     </ul>
                 </div>
