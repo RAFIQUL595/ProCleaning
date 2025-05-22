@@ -1,7 +1,6 @@
 const getAllService = async () => {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
-  const res = await fetch(`${baseUrl}/service.json`, {
+  const res = await fetch('http://localhost:9000/services', {
     cache: 'no-store',
   });
 
