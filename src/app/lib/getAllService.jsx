@@ -1,6 +1,6 @@
 const getAllService = async () => {
 
-  const res = await fetch('http://localhost:9000/services', {
+  const res = await fetch('https://pro-cleaning-server.vercel.app/services', {
     cache: 'no-store',
   });
 

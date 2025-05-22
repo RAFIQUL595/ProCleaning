@@ -1,36 +1,23 @@
 'use client';
-import React, { useState } from 'react';
+import getAllTestimonials from '@/app/lib/getAllTestimonials';
+import React, { useState, useEffect } from 'react';
 import { FaQuoteRight, FaArrowLeft, FaArrowRight, FaStar } from 'react-icons/fa';
 
-const testimonials = [
-    {
-        id: 1,
-        name: 'Robert Fox',
-        title: 'Business Man',
-        image: 'https://randomuser.me/api/portraits/men/44.jpg',
-        rating: 5,
-        feedback: 'Excellent service! The team was punctual, thorough, and left my home sparkling clean. Highly recommend for anyone needing a reliable and detailed cleaning service.',
-    },
-    {
-        id: 2,
-        name: 'Jenny Wilson',
-        title: 'Designer',
-        image: 'https://randomuser.me/api/portraits/women/47.jpg',
-        rating: 4,
-        feedback: 'I loved how professional and friendly the staff were. My workspace looks amazing now!',
-    },
-    {
-        id: 3,
-        name: 'Cody Fisher',
-        title: 'Engineer',
-        image: 'https://randomuser.me/api/portraits/men/32.jpg',
-        rating: 5,
-        feedback: 'Very efficient and attention to detail was impressive. Will definitely hire again!',
-    },
-];
-
 const TestimonialsSection = () => {
+    const [testimonials, setTestimonials] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const fetchTestimonials = async () => {
+            try {
+                const data = await getAllTestimonials();
+                setTestimonials(data);
+            } catch (error) {
+                console.error('Failed to fetch testimonials:', error);
+            }
+        };
+        fetchTestimonials();
+    }, []);
 
     const handlePrev = () => {
         setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
@@ -39,6 +26,8 @@ const TestimonialsSection = () => {
     const handleNext = () => {
         setCurrentIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
     };
+
+    if (testimonials.length === 0) return <div>Loading...</div>;
 
     const { name, title, image, rating, feedback } = testimonials[currentIndex];
 

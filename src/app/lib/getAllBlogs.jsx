@@ -1,5 +1,5 @@
 const getAllBlogs = async () => {
-    const res = await fetch('http://localhost:9000/blogs', {
+    const res = await fetch('https://pro-cleaning-server.vercel.app/blogs', {
         cache: 'no-store',
     });
 

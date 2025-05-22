@@ -1,6 +1,6 @@
 const getBlogById = async (_id) => {
 
-    const res = await fetch(`http://localhost:9000/blog/${_id}`, {
+    const res = await fetch(`https://pro-cleaning-server.vercel.app/blog/${_id}`, {
         cache: 'no-store',
     });
 
